@@ -36,6 +36,7 @@ const Game = () => {
     const response = await api.put(`/logout/${userName}`);
     localStorage.removeItem('userName');
     history.push('/login');
+    console.log(response);
   }
 
   // the effect hook can be used to react to change in your component.
