@@ -10,19 +10,19 @@ on:
 
 jobs:
 
-# [KADEN] CHANGED for tmp deployment
-#  sonarcloud:
-#    name: SonarCloud
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v3
-#        with:
-#          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
-#      - name: SonarCloud Scan
-#        uses: SonarSource/sonarcloud-github-action@master
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
-#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+ # [KADEN] CHANGED for tmp deployment
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   deploy:
     name: Deploying to Google Cloud
@@ -45,8 +45,8 @@ jobs:
         with:
           deliverables: app.yaml
           version: v1
-#          credentials: ${{ secrets.GCP_SERVICE_CREDENTIALS }} # [KADEN] CHANGED for tmp deployment
-          credentials: ${{ secrets.GCP_SERVICE_CREDENTIALS_TMP }}
+          credentials: ${{ secrets.GCP_SERVICE_CREDENTIALS }} # [KADEN] CHANGED for tmp deployment
+#          credentials: ${{ secrets.GCP_SERVICE_CREDENTIALS_TMP }}
 
       - name: Test
         run: curl "${{ steps.deploy.outputs.url }}"
