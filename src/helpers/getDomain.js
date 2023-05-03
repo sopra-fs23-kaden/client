@@ -8,7 +8,7 @@ import { isProduction } from 'helpers/isProduction'
  */
 export const getDomain = () => {
   // const prodUrl = 'https://sopra-fs23-ta-m1-server.uc.r.appspot.com/' // TODO: insert your prod url for server (once deployed)
-  const prodUrl = 'sopra-fs23-ta-tmp-server.oa.r.appspot.com' //  [KADEN] CHANGED for tmp deployment
+  const prodUrl = 'https://sopra-fs23-ta-tmp-server.oa.r.appspot.com' //  [KADEN] CHANGED for tmp deployment
   const devUrl = 'http://localhost:8080'
 
   return isProduction() ? prodUrl : devUrl
